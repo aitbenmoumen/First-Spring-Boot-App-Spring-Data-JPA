@@ -7,6 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.List;
+
 @SpringBootApplication
 public class ProductsAppApplication implements CommandLineRunner {
 	@Autowired // injection auto
@@ -27,5 +29,9 @@ public class ProductsAppApplication implements CommandLineRunner {
 		System.out.println(product.getPrice());
 		System.out.println(product.getQuantity());
 		System.out.println("************");
+
+		List<Product> productList = productRepository.findByNameContains("C");
+		productList.forEach(System.out::println);
+
 	}
 }
