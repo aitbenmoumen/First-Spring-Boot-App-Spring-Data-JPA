@@ -30,8 +30,23 @@ public class ProductsAppApplication implements CommandLineRunner {
 		System.out.println(product.getQuantity());
 		System.out.println("************");
 
+		// By method
 		List<Product> productList = productRepository.findByNameContains("C");
 		productList.forEach(System.out::println);
+		// By Annotation
+		List<Product> productListByAnno = productRepository.search("C");
+		productListByAnno.forEach(System.out::println);
+
+		System.out.println("************");
+
+		// By method
+		System.out.println("List of products that cost more than 4000");
+		List<Product> productListPrice = productRepository.findByPriceGreaterThan(Double.valueOf(4000));
+		productList.forEach(System.out::println);
+		System.out.println("---------------");
+		List<Product> productListPriceByAnno = productRepository.findByPriceGreaterThan(Double.valueOf(4000));
+		productListPriceByAnno.forEach(System.out::println);
+
 
 	}
 }
