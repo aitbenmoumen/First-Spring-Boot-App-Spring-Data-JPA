@@ -48,5 +48,7 @@ public class ProductsAppApplication implements CommandLineRunner {
 		productListPriceByAnno.forEach(System.out::println);
 
 
+		System.out.println("Done !!");
+
 	}
 }
